@@ -1,4 +1,5 @@
 import sys
+import os
 
 import numpy as np
 import pandas as pd
@@ -49,4 +50,9 @@ def transform_data(post_df: pd.DataFrame):
 
 
 def load_data_to_csv(data: pd.DataFrame, path: str):
+    # create directoey if it does not exist
+    os.makedirs(os.path.dirname(path), exist_ok=True)    
     data.to_csv(path, index=False)
+
+
+    
